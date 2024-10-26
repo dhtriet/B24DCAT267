@@ -40,8 +40,14 @@ struct mangghidiem
     int diem;
     char xau[MAX];
 };
+struct mangktmap2
+{
+    int x,y;
+};
+struct mangktmap2 ktmap2[500];
 struct mang toado[MAX]= {0};
 struct mangghidiem a[MAX];
+int slmap2=0;
 int sl=3;
 int x_qua=-1;
 int y_qua=-1;
@@ -134,173 +140,269 @@ void ve_tuong2()
      for(int j=11;j<=12;j++)
     for(int i=40;i<=50;i++)
     {
+        slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=j;
          gotoXY(i,j);
         printf("#");
     }
     for(int j=55;j<=56;j++)
     for(int i=12;i>=7;i--)
        {
+            slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
     for(int j=34;j<=35;j++)
     for(int i=12;i>=7;i--)
        {
+            slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
     for(int j=14;j<=15;j++)
     for(int i=31;i<=41;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=j;
          gotoXY(i,j);
         printf("#");
     }
   for(int j=14;j<=15;j++)
     for(int i=50;i<=60;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=j;
          gotoXY(i,j);
         printf("#");
     }
      for(int j=65;j<=66;j++)
      for(int i=10;i<=15;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
     for(int j=25;j<=26;j++)
      for(int i=10;i<=15;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
      for(int j=19;j<=20;j++)
     for(int i=40;i<=50;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=j;
          gotoXY(i,j);
         printf("#");
     }
      for(int j=29;j<=30;j++)
      for(int i=1;i<=4;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
      for(int j=29;j<=30;j++)
      for(int i=21;i<=26;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
      for(int j=61;j<=62;j++)
      for(int i=1;i<=4;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
       for(int j=61;j<=62;j++)
      for(int i=21;i<=26;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=j;
+         ktmap2[slmap2].y=i;
          gotoXY(j,i);
         printf("#");
     }
     //ve khoi vuong 4 ben
     for(int i=5;i<=10;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=86;
+         ktmap2[slmap2].y=i;
     gotoXY(86,i);
     printf("#");
     }
      for(int i=5;i<=10;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=70;
+         ktmap2[slmap2].y=i;
     gotoXY(70,i);
     printf("#");
     }
      for(int i=70;i<=86;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=10;
     gotoXY(i,10);
     printf("#");
     }
      for(int i=70;i<=76;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=5;
     gotoXY(i,5);
     printf("#");
     }
      for(int i=80;i<=86;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=5;
     gotoXY(i,5);
     printf("#");
     }
      for(int i=5;i<=10;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=5;
+         ktmap2[slmap2].y=i;
     gotoXY(5,i);
     printf("#");
     }
      for(int i=5;i<=10;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=21;
+         ktmap2[slmap2].y=i;
     gotoXY(21,i);
     printf("#");
     }
      for(int i=5;i<=21;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=10;
     gotoXY(i,10);
     printf("#");
     }
      for(int i=5;i<=11;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=5;
     gotoXY(i,5);
     printf("#");
     }
      for(int i=15;i<=21;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=5;
     gotoXY(i,5);
     printf("#");
     }
       for(int i=5;i<=11;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=22;
     gotoXY(i,22);
     printf("#");
     }
      for(int i=15;i<=21;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=22;
     gotoXY(i,22);
     printf("#");
     }
       for(int i=17;i<=22;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=5;
+         ktmap2[slmap2].y=i;
     gotoXY(5,i);
     printf("#");
     }
      for(int i=5;i<=21;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=17;
     gotoXY(i,17);
     printf("#");
     }
      for(int i=17;i<=22;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=21;
+         ktmap2[slmap2].y=i;
     gotoXY(21,i);
     printf("#");
     }
      for(int i=80;i<=86;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=22;
     gotoXY(i,22);
     printf("#");
     }
      for(int i=70;i<=76;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=22;
     gotoXY(i,22);
     printf("#");
     }
       for(int i=17;i<=22;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=86;
+         ktmap2[slmap2].y=i;
     gotoXY(86,i);
     printf("#");
     }
      for(int i=70;i<=86;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=i;
+         ktmap2[slmap2].y=17;
     gotoXY(i,17);
     printf("#");
     }
     for(int i=17;i<=22;i++)
     {
+         slmap2++;
+        ktmap2[slmap2].x=70;
+         ktmap2[slmap2].y=i;
     gotoXY(70,i);
     printf("#");
     }
@@ -318,23 +420,52 @@ void di_chuyen_ran(int x,int y)
 bool kt_ran_de_qua()
 {
     for(int i=0; i<sl; i++)
+    {
         if(x_qua==toado[i].x&&y_qua==toado[i].y)
             return true;
+    }
+    return false;
+}
+bool kt_qua_de_map()
+{
+    for(int i=1;i<=slmap2;i++)
+    {
+         if(x_qua==ktmap2[i].x&&y_qua==ktmap2[i].y)
+         return true;
+    }
     return false;
 }
 void tao_qua()
 {
-    do
+    int kt1=1,kt2=1;
+    while(1)
     {
         x_qua=rand()%(89-2+1)+2;
         y_qua=rand()%(25-2+1)+2;
+         for(int i=0; i<sl; i++)
+        if(x_qua==toado[i].x&&y_qua==toado[i].y)
+            {
+                kt1=0;
+                break;
+            }
+              for(int i=1;i<=slmap2;i++)
+         if(x_qua==ktmap2[i].x&&y_qua==ktmap2[i].y)
+         {
+             kt2=0;
+             break;
+         }
+         if(kt1+kt2==2)
+            break;
+         kt1=1,kt2=1;
     }
-    while(kt_ran_de_qua());
 }
 void ve_qua()
 {
     //SetColor(7);
-     SetColor(rand()%(15-1+1)+1);
+    int p=rand()%(15-1+1)+1;
+    while(p==11)
+         p=rand()%(15-1+1)+1;
+     SetColor(p);
     gotoXY(x_qua,y_qua);
     printf("Q");
 }
@@ -366,10 +497,14 @@ bool game_over()
 {
     if(toado[0].x==1||toado[0].x==90||toado[0].y==1||toado[0].y==26)
         return true;
+          for(int i=1;i<=slmap2;i++)
+         if(toado[0].x==ktmap2[i].x&&toado[0].y==ktmap2[i].y)
+            return true;
     return (kt_ran_cham_than());
 }
 void play()
 {
+     slmap2=0;
     sl=3;
     score=0;
     ShowCur(0); // ẩn độ trễ
@@ -491,16 +626,16 @@ int main()
                      {
                      gotoXY(51,2);
                    SetColor(1);
-                printf("CHON CHE DO CHOI");
+                printf("CHOOSE LEVEL");
                 gotoXY(51,4);
                    SetColor(1);
-                printf("1.DE (+5 point to eat 'Q')");
+                printf("1.EASY (+5 point to eat 'Q')");
                 gotoXY(51,6);
                    SetColor(1);
-                printf("2.BINH THUONG (+10 point to eat 'Q')");
+                printf("2.NORMAL (+10 point to eat 'Q')");
                 gotoXY(51,8);
                    SetColor(1);
-                printf("3.KHO (+15 point to eat 'Q')");
+                printf("3.HARD (+15 point to eat 'Q')");
                  if(_kbhit())
                  {
                        char c=_getch();
@@ -560,7 +695,7 @@ int main()
                 printf("DUONG HONG TRIET B24DCAT267");
                 SetColor(4);
                   gotoXY(50,13);
-                  printf("5.EXIT");
+                  printf("5.RETURN");
                      if(_kbhit())
                  {
                        char c=_getch();
@@ -594,21 +729,21 @@ int main()
                   SetColor(5);
             printf("TOP RANKINGS");
                   SetColor(3);
-                /*     FILE *file = freopen("output.txt", "w", stdout);
-    if (file == NULL) {
-        perror("freopen");
-        return 1;
-    }
-                    for(int i=0;i<5;i++)
-                         printf("%s %d\n ",a[i].xau,a[i].diem);
-
-                    fflush(stdout);
-    // Điều kiện kiểm tra hệ điều hành
- #ifdef _WIN32
-        freopen("CON", "w", stdout); // Trên Windows
-    #else
-        freopen("/dev/tty", "w", stdout); // Trên Unix-like OS
-    #endif*/
+//                     FILE *file = freopen("output.txt", "w", stdout);
+//    if (file == NULL) {
+//        perror("freopen");
+//        return 1;
+//    }
+//                    for(int i=0;i<5;i++)
+//                         printf("%s %d\n ",a[i].xau,a[i].diem);
+//
+//                    fflush(stdout);
+//    // Điều kiện kiểm tra hệ điều hành
+// #ifdef _WIN32
+//        freopen("CON", "w", stdout); // Trên Windows
+//    #else
+//        freopen("/dev/tty", "w", stdout); // Trên Unix-like OS
+//    #endif
                   for(int i=0;i<5;i++)
                   {
                        gotoXY(50,5+i);
@@ -618,7 +753,7 @@ int main()
                   }
                   SetColor(4);
                   gotoXY(50,13);
-                  printf("5.EXIT");
+                  printf("5.RETURN");
                     if(_kbhit())
                  {
                        char c=_getch();
