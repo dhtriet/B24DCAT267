@@ -103,6 +103,208 @@ void ve_tuong()
         printf("#");
     }
 }
+void ve_tuong2()
+{
+         SetColor(11);
+//max 90*26
+    // vẽ tường trên
+    for(int i=1; i<=90; i++)
+    {
+        gotoXY(i,1);
+        printf("#");
+    }
+    // vẽ tường dưới
+    for(int i=1; i<=90; i++)
+    {
+        gotoXY(i,26);
+        printf("#");
+    }
+    // vẽ tường trái
+    for(int i=1; i<=26; i++)
+    {
+        gotoXY(1,i);
+        printf("#");
+    }
+    // vẽ tường phải
+    for(int i=1; i<=26; i++)
+    {
+        gotoXY(90,i);
+        printf("#");
+    }
+     for(int j=11;j<=12;j++)
+    for(int i=40;i<=50;i++)
+    {
+         gotoXY(i,j);
+        printf("#");
+    }
+    for(int j=55;j<=56;j++)
+    for(int i=12;i>=7;i--)
+       {
+         gotoXY(j,i);
+        printf("#");
+    }
+    for(int j=34;j<=35;j++)
+    for(int i=12;i>=7;i--)
+       {
+         gotoXY(j,i);
+        printf("#");
+    }
+    for(int j=14;j<=15;j++)
+    for(int i=31;i<=41;i++)
+    {
+         gotoXY(i,j);
+        printf("#");
+    }
+  for(int j=14;j<=15;j++)
+    for(int i=50;i<=60;i++)
+    {
+         gotoXY(i,j);
+        printf("#");
+    }
+     for(int j=65;j<=66;j++)
+     for(int i=10;i<=15;i++)
+    {
+         gotoXY(j,i);
+        printf("#");
+    }
+    for(int j=25;j<=26;j++)
+     for(int i=10;i<=15;i++)
+    {
+         gotoXY(j,i);
+        printf("#");
+    }
+     for(int j=19;j<=20;j++)
+    for(int i=40;i<=50;i++)
+    {
+         gotoXY(i,j);
+        printf("#");
+    }
+     for(int j=29;j<=30;j++)
+     for(int i=1;i<=4;i++)
+    {
+         gotoXY(j,i);
+        printf("#");
+    }
+     for(int j=29;j<=30;j++)
+     for(int i=21;i<=26;i++)
+    {
+         gotoXY(j,i);
+        printf("#");
+    }
+     for(int j=61;j<=62;j++)
+     for(int i=1;i<=4;i++)
+    {
+         gotoXY(j,i);
+        printf("#");
+    }
+      for(int j=61;j<=62;j++)
+     for(int i=21;i<=26;i++)
+    {
+         gotoXY(j,i);
+        printf("#");
+    }
+    //ve khoi vuong 4 ben
+    for(int i=5;i<=10;i++)
+    {
+    gotoXY(86,i);
+    printf("#");
+    }
+     for(int i=5;i<=10;i++)
+    {
+    gotoXY(70,i);
+    printf("#");
+    }
+     for(int i=70;i<=86;i++)
+    {
+    gotoXY(i,10);
+    printf("#");
+    }
+     for(int i=70;i<=76;i++)
+    {
+    gotoXY(i,5);
+    printf("#");
+    }
+     for(int i=80;i<=86;i++)
+    {
+    gotoXY(i,5);
+    printf("#");
+    }
+     for(int i=5;i<=10;i++)
+    {
+    gotoXY(5,i);
+    printf("#");
+    }
+     for(int i=5;i<=10;i++)
+    {
+    gotoXY(21,i);
+    printf("#");
+    }
+     for(int i=5;i<=21;i++)
+    {
+    gotoXY(i,10);
+    printf("#");
+    }
+     for(int i=5;i<=11;i++)
+    {
+    gotoXY(i,5);
+    printf("#");
+    }
+     for(int i=15;i<=21;i++)
+    {
+    gotoXY(i,5);
+    printf("#");
+    }
+      for(int i=5;i<=11;i++)
+    {
+    gotoXY(i,22);
+    printf("#");
+    }
+     for(int i=15;i<=21;i++)
+    {
+    gotoXY(i,22);
+    printf("#");
+    }
+      for(int i=17;i<=22;i++)
+    {
+    gotoXY(5,i);
+    printf("#");
+    }
+     for(int i=5;i<=21;i++)
+    {
+    gotoXY(i,17);
+    printf("#");
+    }
+     for(int i=17;i<=22;i++)
+    {
+    gotoXY(21,i);
+    printf("#");
+    }
+     for(int i=80;i<=86;i++)
+    {
+    gotoXY(i,22);
+    printf("#");
+    }
+     for(int i=70;i<=76;i++)
+    {
+    gotoXY(i,22);
+    printf("#");
+    }
+      for(int i=17;i<=22;i++)
+    {
+    gotoXY(86,i);
+    printf("#");
+    }
+     for(int i=70;i<=86;i++)
+    {
+    gotoXY(i,17);
+    printf("#");
+    }
+    for(int i=17;i<=22;i++)
+    {
+    gotoXY(70,i);
+    printf("#");
+    }
+}
 void di_chuyen_ran(int x,int y)
 {
     for(int i=sl; i>0; i--)
@@ -172,12 +374,12 @@ void play()
     score=0;
     ShowCur(0); // ẩn độ trễ
     khoi_tao_ran();
-    ve_tuong();
+    ve_tuong2();
     tao_qua();
     ve_qua();
     int x=toado[0].x;
     int y=toado[0].y;
-    int check;
+    int check=2;
     //0 đi xuống
     //1 đi lên
     //2 đi qua phải
@@ -292,13 +494,13 @@ int main()
                 printf("CHON CHE DO CHOI");
                 gotoXY(51,4);
                    SetColor(1);
-                printf("1.DE (+5 diem khi an qua)");
+                printf("1.DE (+5 point to eat 'Q')");
                 gotoXY(51,6);
                    SetColor(1);
-                printf("2.BINH THUONG (+10 diem khi an qua)");
+                printf("2.BINH THUONG (+10 point to eat 'Q')");
                 gotoXY(51,8);
                    SetColor(1);
-                printf("3.KHO (+15 diem khi an qua)");
+                printf("3.KHO (+15 point to eat 'Q')");
                  if(_kbhit())
                  {
                        char c=_getch();
