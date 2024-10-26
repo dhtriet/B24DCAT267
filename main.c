@@ -45,7 +45,7 @@ struct mangktmap2
     int x,y;
 };
 struct mangktmap2 ktmap2[500];
-struct mang toado[MAX]= {0};
+struct mang toado[1000]= {0};
 struct mangghidiem a[MAX];
 int checkmap=0;
 int slmap2=0;
@@ -55,6 +55,10 @@ int y_qua=-1;
 int score=0;
 int tocdo=0;
 int tangdiem;
+int diemcong=0;
+int chuyenqua=1;
+int chuyendiem=0;
+int mode=0;
 void khoi_tao_ran()
 {
     int x_khoi_tao=42;
@@ -478,7 +482,7 @@ void tao_qua1()
         kt1=1;
     }
 }
-void ve_qua()
+void ve_qua1()
 {
     //SetColor(7);
     int p=rand()%(15-1+1)+1;
@@ -487,6 +491,16 @@ void ve_qua()
     SetColor(p);
     gotoXY(x_qua,y_qua);
     printf("Q");
+}
+void ve_qua2()
+{
+    //SetColor(7);
+    int p=rand()%(15-1+1)+1;
+    while(p==11)
+        p=rand()%(15-1+1)+1;
+    SetColor(p);
+    gotoXY(x_qua,y_qua);
+    printf("D");
 }
 bool kt_ran_an_qua()
 {
@@ -503,9 +517,31 @@ void xu_ly_ran_an_qua()
             tao_qua2();
         else
             tao_qua1();//tạo quả mới
-        ve_qua();
+            ve_qua1();
         //tăng điểm
-        score+=tangdiem;
+        score+=tangdiem+diemcong;
+    }
+}
+void xu_ly_ran_an_qua2()
+{
+    if(kt_ran_an_qua())
+    {
+        chuyendiem++;
+        chuyenqua++;// đủ số lượng sẽ chuyễn sang quả đặc biệt
+        sl++;//tăng số lượng đốt
+        if(checkmap==2)
+            tao_qua2();
+        else
+            tao_qua1();//tạo quả mới
+        if(chuyenqua%3==0)
+            ve_qua2();
+        else
+            ve_qua1();
+        //tăng điểm
+        if(chuyendiem%3==0)
+            score+=30+diemcong;
+        else
+        score+=tangdiem+diemcong;
     }
 }
 bool kt_ran_cham_than()
@@ -541,7 +577,7 @@ void play()
         ve_tuong();
         tao_qua1();
     }
-    ve_qua();
+    ve_qua1();
     int x=toado[0].x;
     int y=toado[0].y;
     int check=2;
@@ -596,7 +632,10 @@ void play()
         if(game_over())
             break;
         // xử lý rắn
-        xu_ly_ran_an_qua();
+        if(mode==1)
+             xu_ly_ran_an_qua();
+      else
+        xu_ly_ran_an_qua2();
         gotoXY(102,13);
         printf("SCORE=%d",score);
         di_chuyen_ran(x,y);
@@ -605,6 +644,7 @@ void play()
     }
     tocdo=0;
     checkmap=0;
+    mode=0;
 }
 void clear_het()
 {
@@ -639,21 +679,49 @@ int main()
         printf("2.QUIT GAME");
         gotoXY(50,10);
         SetColor(7);
-        printf("3.ABOUT");
+        printf("3.CREDIT");
         gotoXY(50,12);
         SetColor(5);
         printf("4.TOP RANKINGS");
+        gotoXY(50,14);
+        SetColor(12);
+        printf("5.ABOUT");
         if(_kbhit()) //kiem tra nguoi dung nhap gi
         {
             char c=_getch();
             if(c=='1')
             {
                 for(int i=50; i<=73; i++)
-                    for(int j=2; j<=12; j++)
+                    for(int j=2; j<=14; j++)
                     {
                         gotoXY(i,j);
                         printf(" ");
                     }
+                      while(mode==0)
+                {
+                    gotoXY(51,2);
+                    SetColor(1);
+                    printf("CHOOSE MODE");
+                    gotoXY(51,4);
+                    SetColor(1);
+                    printf("1.CLASSIC (Q)");
+                    gotoXY(51,6);
+                    SetColor(1);
+                    printf("2.MODERN (Q,D)");
+                    if(_kbhit())
+                    {
+                        char t=_getch();
+                        if(t=='1')
+                        {
+                           mode=1;
+                        }
+                        else if(t=='2')
+                        {
+                           mode=2;
+                        }
+                    }
+                }
+                clear_het();
                 while(tocdo==0)
                 {
                     gotoXY(51,2);
@@ -661,13 +729,13 @@ int main()
                     printf("CHOOSE LEVEL");
                     gotoXY(51,4);
                     SetColor(1);
-                    printf("1.EASY (+5 point to eat 'Q')");
+                    printf("1.EASY (+5 point for eating 'Q')");
                     gotoXY(51,6);
                     SetColor(1);
-                    printf("2.NORMAL (+10 point to eat 'Q')");
+                    printf("2.NORMAL (+10 point for eating 'Q')");
                     gotoXY(51,8);
                     SetColor(1);
-                    printf("3.HARD (+15 point to eat 'Q')");
+                    printf("3.HARD (+15 point for eating 'Q')");
                     if(_kbhit())
                     {
                         char c=_getch();
@@ -699,7 +767,7 @@ int main()
                     printf("1.BASIC");
                     gotoXY(51,6);
                     SetColor(1);
-                    printf("2.MAZE");
+                    printf("2.MAZE (+5 point for eating 'Q')");
                     if(_kbhit())
                     {
                         char t=_getch();
@@ -710,12 +778,14 @@ int main()
                         else if(t=='2')
                         {
                             checkmap=2;
+                            diemcong=5;
                         }
                     }
                 }
                 clear_het();
                 srand(time(NULL));
                 play();
+                Sleep(200);
                 if(score>a[4].diem)
                 {
                     gotoXY(93,14);
@@ -762,7 +832,7 @@ int main()
                 {
                     gotoXY(50,2);
                     SetColor(15);
-                    printf("ABOUT");
+                    printf("CREDIT");
                     gotoXY(38,4);
                     SetColor(4);
                     printf("HOC VIEN HOANG GIA PI TI AI TI");
@@ -774,7 +844,7 @@ int main()
                     printf("DUONG HONG TRIET B24DCAT267");
                     SetColor(4);
                     gotoXY(49,13);
-                    printf("5.RETURN");
+                    printf("3.RETURN");
                     if(_kbhit())
                     {
                         char c=_getch();
@@ -832,7 +902,7 @@ int main()
                     }
                     SetColor(4);
                     gotoXY(50,13);
-                    printf("5.RETURN");
+                    printf("4.RETURN");
                     if(_kbhit())
                     {
                         char c=_getch();
