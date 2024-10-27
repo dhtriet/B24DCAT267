@@ -679,7 +679,7 @@ int main()
         {330,"manus casen"},
         {200,"ding liren"},
         {140,"le quang liem"},
-        {50,"nerman"},
+        {50,"han nerman"},
         {5,"ga"}
     };
     while(1)
@@ -1044,8 +1044,11 @@ int main()
                 while(k==0)
                 {
                     SetColor(12);
-                    gotoXY(50,2);
+                    gotoXY(50,1);
                     printf("TUTORIAL");
+                     SetColor(7);
+                    gotoXY(1,3);
+                    printf("-In the top 5 highest scorers will be honored.");
                     SetColor(7);
                     gotoXY(1,4);
                     printf("-You can only move up, left, down, or right either with arrow keys or use the W A S D key.");
