@@ -520,6 +520,8 @@ void xu_ly_ran_an_qua()
             ve_qua1();
         //tăng điểm
         score+=tangdiem+diemcong;
+         if(mode==3)
+            tocdo-=2;
     }
 }
 void xu_ly_ran_an_qua2()
@@ -632,7 +634,7 @@ void play()
         if(game_over())
             break;
         // xử lý rắn
-        if(mode==1)
+        if(mode==1||mode==3)
              xu_ly_ran_an_qua();
       else
         xu_ly_ran_an_qua2();
@@ -657,7 +659,7 @@ void clear_het()
 }
 int main()
 {
-    struct mangghidiem a[MAX]=
+    struct mangghidiem a[7]=
     {
         {1000,"noname"},
         {955,"SV PTIT"},
@@ -708,6 +710,9 @@ int main()
                     gotoXY(51,6);
                     SetColor(1);
                     printf("2.MODERN (Q,D)");
+                    gotoXY(51,8);
+                    SetColor(1);
+                    printf("3.SPECIAL (Q,Each time it eats, it moves faster)");
                     if(_kbhit())
                     {
                         char t=_getch();
@@ -719,9 +724,18 @@ int main()
                         {
                            mode=2;
                         }
+                        else if(t=='3')
+                        {
+                            mode=3;
+                        }
                     }
                 }
-                clear_het();
+              for(int i=50; i<=100; i++)
+                    for(int j=2; j<=14; j++)
+                    {
+                        gotoXY(i,j);
+                        printf(" ");
+                    }
                 while(tocdo==0)
                 {
                     gotoXY(51,2);
@@ -756,7 +770,12 @@ int main()
                         }
                     }
                 }
-                clear_het();
+                for(int i=50; i<=100; i++)
+                    for(int j=2; j<=14; j++)
+                    {
+                        gotoXY(i,j);
+                        printf(" ");
+                    }
                 while(checkmap==0)
                 {
                     gotoXY(51,2);
@@ -782,7 +801,12 @@ int main()
                         }
                     }
                 }
-                clear_het();
+                 for(int i=50; i<=100; i++)
+                    for(int j=2; j<=14; j++)
+                    {
+                        gotoXY(i,j);
+                        printf(" ");
+                    }
                 srand(time(NULL));
                 play();
                 Sleep(200);
@@ -848,7 +872,7 @@ int main()
                     if(_kbhit())
                     {
                         char c=_getch();
-                        if(c=='5')
+                        if(c=='3')
                             k++;
                     }
                 }
@@ -906,12 +930,54 @@ int main()
                     if(_kbhit())
                     {
                         char c=_getch();
-                        if(c=='5')
+                        if(c=='4')
                             k++;
                     }
                 }
                 clear_het();
-            }
         }
+        else if(c=='5')
+            {
+                 clear_het();
+                int k=0;
+                while(k==0)
+                {
+                    SetColor(12);
+                gotoXY(50,2);
+                 printf("TUTORIAL");
+                  SetColor(7);
+                  gotoXY(1,4);
+                  printf("-You can only move up, left, down, or right either with arrow keys or use the W A S D key.");
+                  SetColor(7);
+                  gotoXY(1,5);
+                  printf("-There are only two rules you must follow when playing: do not hit a wall and do not bite your own tail.");
+                  SetColor(7);
+                  gotoXY(1,6);
+                  printf("-Crashing into a wall or your tail will end the game immediately.");
+                   SetColor(12);
+                gotoXY(51,8);
+                 printf("NOTE");
+                   SetColor(7);
+                  gotoXY(1,10);
+                  printf("CLASSIC MODE:'Q' appears randomly on the screen. Each time the snake eats a 'Q' the player is score increases.");
+                  SetColor(7);
+                  gotoXY(1,11);
+                  printf("MODERN MODE:After eating 'Q' twice,'D' will appear, and when the player eats 'D' their score will increase by 30 points");
+                   SetColor(7);
+                  gotoXY(1,12);
+                  printf("SPECIAL MODE:Not only does your snake grow longer each time it eats, it moves faster than the classic game as well.");
+                   SetColor(4);
+                    gotoXY(49,14);
+                    printf("5.RETURN");
+                    if(_kbhit())
+                    {
+                        char c=_getch();
+                        if(c=='5')
+                            k++;
+                    }
+                }
+                 clear_het();
+            }
+    }
     }
 }
