@@ -750,6 +750,9 @@ int main()
                     gotoXY(51,8);
                     SetColor(1);
                     printf("3.HARD (+15 point for eating 'Q')");
+                     gotoXY(51,10);
+                    SetColor(1);
+                    printf("4.SUPER HARD (+20 point for eating 'Q')");
                     if(_kbhit())
                     {
                         char c=_getch();
@@ -767,6 +770,11 @@ int main()
                         {
                             tangdiem=15;
                             tocdo=50;
+                        }
+                         else if(c=='4')
+                        {
+                            tangdiem=20;
+                            tocdo=30;
                         }
                     }
                 }
