@@ -46,7 +46,9 @@ struct mangktmap2
 };
 struct mangktmap2 ktmap2[500];
 struct mang toado[1000]= {0};
-struct mangghidiem a[MAX];
+struct mangghidiem classic[7];
+struct mangghidiem modern[7];
+struct mangghidiem special[7];
 int checkmap=0;
 int slmap2=0;
 int sl=3;
@@ -517,10 +519,10 @@ void xu_ly_ran_an_qua()
             tao_qua2();
         else
             tao_qua1();//tạo quả mới
-            ve_qua1();
+        ve_qua1();
         //tăng điểm
         score+=tangdiem+diemcong;
-         if(mode==3)
+        if(mode==3)
             tocdo-=2;
     }
 }
@@ -543,7 +545,7 @@ void xu_ly_ran_an_qua2()
         if(chuyendiem%3==0)
             score+=30+diemcong;
         else
-        score+=tangdiem+diemcong;
+            score+=tangdiem+diemcong;
     }
 }
 bool kt_ran_cham_than()
@@ -635,19 +637,15 @@ void play()
             break;
         // xử lý rắn
         if(mode==1||mode==3)
-             xu_ly_ran_an_qua();
-      else
-        xu_ly_ran_an_qua2();
+            xu_ly_ran_an_qua();
+        else
+            xu_ly_ran_an_qua2();
         gotoXY(102,13);
         printf("SCORE=%d",score);
         di_chuyen_ran(x,y);
         // tốc độ
         Sleep(tocdo);
     }
-    tocdo=0;
-    checkmap=0;
-    mode=0;
-    diemcong=0;
 }
 void clear_het()
 {
@@ -660,13 +658,29 @@ void clear_het()
 }
 int main()
 {
-    struct mangghidiem a[7]=
+    struct mangghidiem classic[7]=
     {
         {1000,"noname"},
         {955,"SV PTIT"},
         {200,"880k/tin"},
         {100,"ISP MAI DINH"},
         {5,"ABCXYZ"}
+    };
+    struct mangghidiem modern[7]=
+    {
+        {6660,"htriet"},
+        {3000,"toi dai dot"},
+        {670,"reuwr"},
+        {520,"yby1"},
+        {5,"piva"}
+    };
+    struct mangghidiem special[7]=
+    {
+        {330,"manus casen"},
+        {200,"ding liren"},
+        {140,"le quang liem"},
+        {50,"nerman"},
+        {5,"ga"}
     };
     while(1)
     {
@@ -700,7 +714,7 @@ int main()
                         gotoXY(i,j);
                         printf(" ");
                     }
-                      while(mode==0)
+                while(mode==0)
                 {
                     gotoXY(51,2);
                     SetColor(1);
@@ -719,11 +733,11 @@ int main()
                         char t=_getch();
                         if(t=='1')
                         {
-                           mode=1;
+                            mode=1;
                         }
                         else if(t=='2')
                         {
-                           mode=2;
+                            mode=2;
                         }
                         else if(t=='3')
                         {
@@ -731,7 +745,7 @@ int main()
                         }
                     }
                 }
-              for(int i=50; i<=100; i++)
+                for(int i=50; i<=100; i++)
                     for(int j=2; j<=14; j++)
                     {
                         gotoXY(i,j);
@@ -751,7 +765,7 @@ int main()
                     gotoXY(51,8);
                     SetColor(1);
                     printf("3.HARD (+15 point for eating 'Q')");
-                     gotoXY(51,10);
+                    gotoXY(51,10);
                     SetColor(1);
                     printf("4.SUPER HARD (+20 point for eating 'Q')");
                     if(_kbhit())
@@ -772,7 +786,7 @@ int main()
                             tangdiem=15;
                             tocdo=50;
                         }
-                         else if(c=='4')
+                        else if(c=='4')
                         {
                             tangdiem=20;
                             tocdo=30;
@@ -810,7 +824,7 @@ int main()
                         }
                     }
                 }
-                 for(int i=50; i<=100; i++)
+                for(int i=50; i<=100; i++)
                     for(int j=2; j<=14; j++)
                     {
                         gotoXY(i,j);
@@ -819,33 +833,100 @@ int main()
                 srand(time(NULL));
                 play();
                 Sleep(200);
-                if(score>a[4].diem)
+                if(mode==1)
                 {
-                    gotoXY(93,14);
-                    printf("You're one of the top 5!!");
-                    gotoXY(93,15);
-                    printf("Please enter your name to ");
-                    gotoXY(93,16);
-                    printf("see your ranking.");
-                    gotoXY(93,17);
-                    printf("PLAYER:");
-                    fgets(a[5].xau, MAX, stdin);
-                    a[5].diem=score;
-                     for(int i=4; i>=0; i--)
-                {
-                    if(a[i].diem<a[i+1].diem)
+                    if(score>classic[4].diem)
                     {
-                        int tmp;
-                        tmp=a[i].diem;
-                        a[i].diem=a[i+1].diem;
-                        a[i+1].diem=tmp;
-                        char tmp1[MAX];
-                        strcpy(tmp1,a[i].xau);
-                        strcpy(a[i].xau,a[i+1].xau);
-                        strcpy(a[i+1].xau,tmp1);
+                        gotoXY(93,14);
+                        printf("You're one of the top 5!!");
+                        gotoXY(93,15);
+                        printf("Please enter your name to ");
+                        gotoXY(93,16);
+                        printf("see your ranking.");
+                        gotoXY(93,17);
+                        printf("PLAYER:");
+                        fgets(classic[5].xau, MAX, stdin);
+                        classic[5].diem=score;
+                        for(int i=4; i>=0; i--)
+                        {
+                            if(classic[i].diem<classic[i+1].diem)
+                            {
+                                int tmp;
+                                tmp=classic[i].diem;
+                                classic[i].diem=classic[i+1].diem;
+                                classic[i+1].diem=tmp;
+                                char tmp1[MAX];
+                                strcpy(tmp1,classic[i].xau);
+                                strcpy(classic[i].xau,classic[i+1].xau);
+                                strcpy(classic[i+1].xau,tmp1);
+                            }
+                        }
                     }
                 }
+                else if(mode==2)
+                {
+                     if(score>modern[4].diem)
+                    {
+                        gotoXY(93,14);
+                        printf("You're one of the top 5!!");
+                        gotoXY(93,15);
+                        printf("Please enter your name to ");
+                        gotoXY(93,16);
+                        printf("see your ranking.");
+                        gotoXY(93,17);
+                        printf("PLAYER:");
+                        fgets(modern[5].xau, MAX, stdin);
+                        modern[5].diem=score;
+                        for(int i=4; i>=0; i--)
+                        {
+                            if(modern[i].diem<modern[i+1].diem)
+                            {
+                                int tmp;
+                                tmp=modern[i].diem;
+                                modern[i].diem=modern[i+1].diem;
+                                modern[i+1].diem=tmp;
+                                char tmp1[MAX];
+                                strcpy(tmp1,modern[i].xau);
+                                strcpy(modern[i].xau,modern[i+1].xau);
+                                strcpy(modern[i+1].xau,tmp1);
+                            }
+                        }
+                    }
                 }
+                else if(mode==3)
+                {
+                      if(score>special[4].diem)
+                    {
+                        gotoXY(93,14);
+                        printf("You're one of the top 5!!");
+                        gotoXY(93,15);
+                        printf("Please enter your name to ");
+                        gotoXY(93,16);
+                        printf("see your ranking.");
+                        gotoXY(93,17);
+                        printf("PLAYER:");
+                        fgets(special[5].xau, MAX, stdin);
+                        special[5].diem=score;
+                        for(int i=4; i>=0; i--)
+                        {
+                            if(special[i].diem<special[i+1].diem)
+                            {
+                                int tmp;
+                                tmp=special[i].diem;
+                                special[i].diem=special[i+1].diem;
+                                special[i+1].diem=tmp;
+                                char tmp1[MAX];
+                                strcpy(tmp1,special[i].xau);
+                                strcpy(special[i].xau,special[i+1].xau);
+                                strcpy(special[i+1].xau,tmp1);
+                            }
+                        }
+                    }
+                }
+                tocdo=0;
+                checkmap=0;
+                mode=0;
+                diemcong=0;
                 clear_het();
             }
             else if(c=='2')
@@ -890,20 +971,6 @@ int main()
             else if(c=='4')
             {
                 clear_het();
-                for(int i=4; i>=0; i--)
-                {
-                    if(a[i].diem<a[i+1].diem)
-                    {
-                        int tmp;
-                        tmp=a[i].diem;
-                        a[i].diem=a[i+1].diem;
-                        a[i+1].diem=tmp;
-                        char tmp1[MAX];
-                        strcpy(tmp1,a[i].xau);
-                        strcpy(a[i].xau,a[i+1].xau);
-                        strcpy(a[i+1].xau,tmp1);
-                    }
-                }
                 int k=0;
                 while(k==0)
                 {
@@ -926,15 +993,40 @@ int main()
 //    #else
 //        freopen("/dev/tty", "w", stdout); // Trên Unix-like OS
 //    #endif
+                    gotoXY(52,4);
+                    SetColor(7);
+                    printf("MODERN MODE");
                     for(int i=0; i<5; i++)
                     {
-                        gotoXY(50,5+i);
-                        printf("%d.%s",i+1,a[i].xau);
-                        gotoXY(70,5+i);
-                        printf("%d",a[i].diem);
+                        gotoXY(45,6+i);
+                        printf("%d.%s",i+1,modern[i].xau);
+                        gotoXY(65,6+i);
+                        printf("%d",modern[i].diem);
+                    }
+
+                    gotoXY(17,4);
+                    SetColor(7);
+                    printf("CLASSIC MODE");
+                    for(int i=0; i<5; i++)
+                    {
+                        gotoXY(10,6+i);
+                        printf("%d.%s",i+1,classic[i].xau);
+                        gotoXY(30,6+i);
+                        printf("%d",classic[i].diem);
+                    }
+
+                      gotoXY(87,4);
+                    SetColor(7);
+                    printf("SPECIAL MODE");
+                    for(int i=0; i<5; i++)
+                    {
+                        gotoXY(80,6+i);
+                        printf("%d.%s",i+1,special[i].xau);
+                        gotoXY(100,6+i);
+                        printf("%d",special[i].diem);
                     }
                     SetColor(4);
-                    gotoXY(50,13);
+                    gotoXY(55,13);
                     printf("4.RETURN");
                     if(_kbhit())
                     {
@@ -944,38 +1036,38 @@ int main()
                     }
                 }
                 clear_het();
-        }
-        else if(c=='5')
+            }
+            else if(c=='5')
             {
-                 clear_het();
+                clear_het();
                 int k=0;
                 while(k==0)
                 {
                     SetColor(12);
-                gotoXY(50,2);
-                 printf("TUTORIAL");
-                  SetColor(7);
-                  gotoXY(1,4);
-                  printf("-You can only move up, left, down, or right either with arrow keys or use the W A S D key.");
-                  SetColor(7);
-                  gotoXY(1,5);
-                  printf("-There are only two rules you must follow when playing: do not hit a wall and do not bite your own tail.");
-                  SetColor(7);
-                  gotoXY(1,6);
-                  printf("-Crashing into a wall or your tail will end the game immediately.");
-                   SetColor(12);
-                gotoXY(51,8);
-                 printf("NOTE");
-                   SetColor(7);
-                  gotoXY(1,10);
-                  printf("CLASSIC MODE:'Q' appears randomly on the screen. Each time the snake eats a 'Q' the player is score increases.");
-                  SetColor(7);
-                  gotoXY(1,11);
-                  printf("MODERN MODE:After eating 'Q' twice,'D' will appear, and when the player eats 'D' their score will increase by 30 points");
-                   SetColor(7);
-                  gotoXY(1,12);
-                  printf("SPECIAL MODE:Not only does your snake grow longer each time it eats, it moves faster than the classic game as well.");
-                   SetColor(4);
+                    gotoXY(50,2);
+                    printf("TUTORIAL");
+                    SetColor(7);
+                    gotoXY(1,4);
+                    printf("-You can only move up, left, down, or right either with arrow keys or use the W A S D key.");
+                    SetColor(7);
+                    gotoXY(1,5);
+                    printf("-There are only two rules you must follow when playing: do not hit a wall and do not bite your own tail.");
+                    SetColor(7);
+                    gotoXY(1,6);
+                    printf("-Crashing into a wall or your tail will end the game immediately.");
+                    SetColor(12);
+                    gotoXY(51,8);
+                    printf("NOTE");
+                    SetColor(7);
+                    gotoXY(1,10);
+                    printf("CLASSIC MODE:'Q' appears randomly on the screen. Each time the snake eats a 'Q' the player is score increases.");
+                    SetColor(7);
+                    gotoXY(1,11);
+                    printf("MODERN MODE:After eating 'Q' twice,'D' will appear, and when the player eats 'D' their score will increase by 30 points");
+                    SetColor(7);
+                    gotoXY(1,12);
+                    printf("SPECIAL MODE:Not only does your snake grow longer each time it eats, it moves faster than the classic game as well.");
+                    SetColor(4);
                     gotoXY(49,14);
                     printf("5.RETURN");
                     if(_kbhit())
@@ -985,8 +1077,8 @@ int main()
                             k++;
                     }
                 }
-                 clear_het();
+                clear_het();
             }
-    }
+        }
     }
 }
