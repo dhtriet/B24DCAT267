@@ -647,6 +647,7 @@ void play()
     tocdo=0;
     checkmap=0;
     mode=0;
+    diemcong=0;
 }
 void clear_het()
 {
